@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Crystallize Product Selector</title>
+    <link rel="stylesheet" href="custom-element.css" />
+    <style>
+      body {
+        overflow: hidden;
+        margin: 0;
+        padding: 8px;
+      }
+      .content .title {
+        display: flex;
+        align-items: center;
+      }
+      .title .text {
+        margin-right: 8px;
+        color: #ccc;
+      }
+      .title .text--is-selected {
+        color: #000;
+      }
+      .searchform {
+        display: flex;
+        align-items: center;
+      }
+      .searchterm {
+        min-width: auto;
+        margin-right: 8px;
+      }
+      .tile {
+        display: inline-block;
+        width: 200px;
+        overflow: hidden;
+        margin: 10px;
+        border: solid 1px transparent;
+        position: relative;
+        text-align: center;
+      }
+      .tile:hover {
+        border: solid 1px #ccc;
+      }
+      .tile .title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 5px;
+        white-space: nowrap;
+        text-align: left;
+      }
+      .tile .sku {
+        text-align: left;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: #ccc;
+        padding: 5px;
+        padding-top: 0;
+      }
+      .tile .noimage {
+        display: inline-block;
+        width: 150px;
+        height: 150px;
+        color: #ccc;
+        background-color: #f8f8f8;
+        line-height: 150px;
+        margin: 5px;
+      }
+      .tile-clickable {
+        cursor: pointer;
+      }
+      img.preview {
+        max-width: 150px;
+        max-height: 150px;
+        margin: 5px;
+      }
+      img.preview:active {
+        outline: none;
+      }
+      .selected .tile {
+        width: 400px;
+        margin: 0;
+      }
+      .selected .tile:hover {
+        border: solid 1px transparent;
+      }
+      .results {
+        margin-top: 16px;
+      }
+    </style>
+
+    <!-- Kentico Custom elements API-->
+    <script src="https://app.kontent.ai/js-api/custom-element/v1/custom-element.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  </head>
+  <body>
+    <!-- Custom element HTML -->
+    <div class="content">
+      <h4 class="title">
+        <span class="text">Loading ...</span>
+        <span class="clear">
+          <button class="btn btn--secondary btn--xs clearbtn" style="display: none">
+            Clear
+          </button>
+        </span>
+      </h4>
+      <div class="selected"></div>
+    </div>
+    <div class="search" style="display: none">
+      <form class="searchform">
+        <input class="searchterm text-field__input" />
+        <button class="btn btn--primary searchbtn">Search</button>
+        <button class="btn btn--secondary clearsearchbtn">Clear search</button>
+      </form>
+      <div class="results" style="display: none"></div>
+    </div>
+    <script src="product-selector.js"></script>
+  </body>
+</html>

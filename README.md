@@ -15,7 +15,7 @@ This repository contains source code of Crystallize product selector custom elem
 
 ## JSON Parameters
 
-You will also need to provide the following JSON parameters for the custom element to connect to your Crystallize tenant. Replace the placeholders with the actual values from the Shopify admin UI:
+You will also need to provide the following JSON parameters for the custom element to connect to your Crystallize account. Replace the placeholder with the actual value from the Crystallize UI:
 
 ```json
 {
@@ -25,6 +25,19 @@ You will also need to provide the following JSON parameters for the custom eleme
 ```
 
 The *disableModificationOfExternalItems* parameter is optional and allows for a different behavior for items created by a possible integration that creates an item in Kontent when a product is created in Crystallize. The value of the custom element contains an *isExternal* property in that case. If the *isExternal* is set to true, the selector is shown in a mode that doesn't allow for a further change of its value.
+
+# Example of the output in the Delivery Response
+
+The value in Delivery API is going to have the following shape:
+
+```json
+{
+    "id": "5faa875de8f6e2433cf877c5",
+    "name": "Sweet Existence",
+    "sku": "your-sku-1605011292891",
+    "image": "https://media.crystallize.com/kentico-kontent/20/11/10/2/ebbdae2cb9029da541577e49cc234725f57ae5ef.jpg"
+}
+```
 
 ## Deploying
 
